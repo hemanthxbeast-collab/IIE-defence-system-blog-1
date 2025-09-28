@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aerospace Innovation: Future Forward</title>
+<meta name="description" content="Exploring the evolution of aerospace and defense systems, from hypersonic flight to autonomous drone swarms." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230F172A'/><path d='M50 10 L80 90 L50 75 L20 90 Z' fill='%230EA5E9'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-accent: #0EA5E9;
+    --color-bg: #0F172A;
+    --color-card: #1E293B;
+    --color-text: #E2E8F0;
+    --color-meta: #94A3B8;
+    --font-primary: 'Montserrat', sans-serif;
+    --line-height: 1.5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-primary);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    line-height: var(--line-height);
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: white;
+  }
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 1rem 3rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.3s, background 0.3s;
+  }
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-text);
+  }
+  .main-nav a {
+    margin: 0 1.2rem;
+    font-weight: 600;
+    color: var(--color-meta);
+  }
+  .main-nav a:hover {
+    color: var(--color-accent);
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 1rem 2rem 1rem;
+  }
+  .hero {
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+    overflow: hidden;
+    z-index: 0;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.8em;
+    position: relative;
+    z-index: 10;
+  }
+  .hero .subtitle {
+    color: var(--color-meta);
+    position: relative;
+    z-index: 10;
+  }
+  .liquid-bg {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 220%;
+    height: 160%;
+    background: linear-gradient(135deg, #0EA5E9, #2563EB);
+    border-radius: 50%;
+    filter: blur(90px);
+    transform: translateX(-50%);
+    animation: liquidMove 12s ease-in-out infinite;
+    z-index: 5;
+    mix-blend-mode: screen;
+    opacity: 0.7;
+  }
+  @keyframes liquidMove {
+    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+    50% { transform: translateX(-45%) translateY(-20px) scale(1.05); }
+  }
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 40px auto 60px;
+    padding-left: 30px;
+    border-left: 3px solid var(--color-accent);
+  }
+  .timeline-event {
+    position: relative;
+    margin: 30px 0 30px 40px;
+  }
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 8px var(--color-accent);
+  }
+  .timeline-year {
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--color-text);
+  }
+  .timeline-desc {
+    font-size: 1rem;
+    color: var(--color-meta);
+  }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .post-card {
+    background: var(--color-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    position: relative;
+  }
+  .post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--color-accent);
+  }
+  .card-image-wrapper {
+    height: 180px;
+    overflow: hidden;
+    background: #0f172a;
+  }
+  .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  .post-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+  }
+  .card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.4em;
+  }
+  .card-meta {
+    font-size: 13px;
+    color: var(--color-meta);
+    margin-bottom: 0.7em;
+  }
+  .category {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .card-excerpt {
+    margin-bottom: 1.3em;
+    flex-grow: 1;
+  }
+  .author-name {
+    font-size: 14px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .read-more,
+  .ref-link {
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6em 1em;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: background 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .read-more:hover,
+  .ref-link:hover {
+    background: #38bdf8;
+  }
+  .site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-meta);
+    border-top: 1px solid var(--color-card);
+    margin-top: 4rem;
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    .container {
+      padding: 6rem 0.5rem 2rem 0.5rem;
+    }
+    .site-header {
+      padding: 1rem;
+    }
+    .post-card {
+      min-height: auto;
+    }
+    .read-more,
+    .ref-link {
+      white-space: normal;
+    }
+    .timeline {
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      border-left-width: 2px;
+    }
+    .timeline-event {
+      margin-left: 25px;
+    }
+    .timeline-event::before {
+      left: -32px;
+      width: 15px;
+      height: 15px;
+      border-width: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="logo"><a href="#"><span style="color: var(--color-accent);">AERO</span>FUTURE</a></div>
+  <nav class="main-nav" role="navigation">
+    <a href="#posts">Blog</a>
+    <a href="#about">About</a>
+    <a href="https://www.instagram.com/beastincarnates" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </nav>
+</header>
+
+<section class="hero" aria-label="Hero section with recent aerospace innovation headline">
+  <div class="liquid-bg" aria-hidden="true"></div>
+  <h1>The New Frontier of Aerospace</h1>
+  <p class="subtitle">Driving innovation in defense, autonomy, and advanced propulsion.</p>
+</section>
+
+<main class="container">
+
+  <section class="intro-section">
+    <p class="intro-text">
+      Explore pivotal shifts in hypersonic propulsion, laser defense, drone swarms, AI copilots, quantum communications, and space security with links to the world's best explanations.
+    </p>
+  </section>
+
+  <section class="timeline" aria-label="Evolution of Defense Technology">
+    <div class="timeline-event">
+      <div class="timeline-year">1940s–1960s</div>
+      <div class="timeline-title">Early Defence Era</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Ground-based radar networks</li>
+          <li>Interceptor aircraft squadrons</li>
+          <li>Manual threat assessment</li>
+          <li>Radio communication systems with human operators monitoring primitive radar screens</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-year">1990s–2020s</div>
+      <div class="timeline-title">Modern Innovation Phase</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>AI-enhanced surveillance drones</li>
+          <li>Stealth aircraft deployment</li>
+          <li>Precision-guided missile systems</li>
+          <li>Satellite tracking networks</li>
+          <li>Digital command integration</li>
+        </ul>
+        <p>Revolutionary leap towards networked defense combining satellite intelligence with unmanned systems and computational analysis.</p>
+      </div>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-year">2030s+</div>
+      <div class="timeline-title">Future Defence Architecture</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Hypersonic interceptor platforms</li>
+          <li>Directed-energy laser systems</li>
+          <li>Autonomous threat detection AI</li>
+          <li>Swarm defense drone networks</li>
+          <li>Quantum-encrypted communications</li>
+        </ul>
+        <p>Fully autonomous defense ecosystems capable of microsecond threat identification and neutralization without human intervention.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="posts" class="blog-grid-section">
+    <h2 class="section-title" style="color: var(--color-accent); margin-bottom: 1.2rem;">Latest Innovations</h2>
+    <div class="post-grid">
+
+      <article class="post-card">
+        <div class="card-image-wrapper">
+          <img alt="Autonomous Drone Swarm in Coordinated Formation" loading="lazy" src="data:image/jpeg;base64,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痛hPiFSh9AM+k4u9CcdbODbDn1cwyqNXbMOXtRehUUnIoyi1KnPysswrnN91pKqpdfff9nXlD48PTSvXlJxEbZQiqduFlHulFOzblm0n6fxko9YvqMSrpRIUyov2FqkkuGc3JT48zzt2VyYuTo9JKU09GplnpTr0b5UPxARrZGIq+wcYuDqhglUUlrYZTi0qZSWlslfLqKf0I0AAAAAAAAAAAAAAAAAAAAAAAAB//Z" />
+        </div>
+        <div class="card-content">
+          <p class="card-meta">Dec 15, 2025 <span class="category">Autonomous Systems</span> | 5 min read</p>
+          <div class="card-title">The Age of Swarms: Autonomous Drone Coordination</div>
+          <p class="card-excerpt">How physics-based algorithms and decentralized control enable mass-scale, coordinated drone operations.</p>
+          <a href="https://www.jagranjosh.com/general-knowledge/what-are-swarm-drones-check-range-speed-and-other-details-1746814204-1" class="read-more" target="_blank" rel="noopener noreferrer">Best Explanation</a>
+          <a href="https://www.meegle.com/en_us/topics/autonomous-drones/autonomous-drone-swarm-formation" class="ref-link" target="_blank" rel="noopener noreferrer">Technical Details</a>
+          <div class="author-name">By Hemanth</div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="card-image-wrapper">
+          <img alt="High-Speed Streak representing Hypersonic Flight" loading="lazy" src="data:image/jpeg;base64,PUT_FULL_BASE64_HERE" />
+        </div>
+        <div class="card-content">
+          <p class="card-meta">Dec 01, 2025 <span class="category">Hypersonics</span> | 8 min read</p>
+          <div class="card-title">The Global Race to Mach 5: Propulsion Breakthroughs</div>
+          <p class="card-excerpt">A deep dive into scramjet engine technology and the challenges of atmospheric control at extreme velocities.</p>
+          <a href="https://www.techbriefs.com/component/content/article/45363-propulsion-system-for-hypersonic-flight" class="read-more" target="_blank" rel="noopener noreferrer">Propulsion Explained</a>
+          <a href="https://www.linkedin.com/pulse/hypersonic-propulsion-future-high-speed-travel-ramesh-m-sns" class="ref-link" target="_blank" rel="noopener noreferrer">See All Engine Types</a>
+          <div class="author-name">By Hemanth</div>
+        </div>
+      </article>
+
+      <!-- Add remaining articles similarly with their base64 images -->
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  &copy; 2025 AeroFuture Innovations. All rights reserved.
+</footer>
+</body>
+</html>
